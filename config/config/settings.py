@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'posts',
     'orders',
     'favorites',
+    
 ]
+
 REST_FRAMEWORK = {
      'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',  # ✅ لازم يكون هنا
@@ -91,8 +93,7 @@ AUTH_USER_MODEL = 'accounts.User'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL'),  # ✅ يقرأ من .env
-        conn_max_age=600
+        default='sqlite:///db.sqlite3'
     )
 }
 
